@@ -1,0 +1,18 @@
+<h1>商品新規登録</h1>
+　<%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
+　  <p>商品画像</p>
+　  <%= f.file_field :image, accept: "image/*" %>
+　  <p>商品名</p>
+　  <%= f.text_field :name %>
+　  <p>商品説明</p>
+　  <%= f.text_area :introduction %>
+　  <p>ジャンル</p>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+　  <p>税抜価格</p>
+　  <%= f.number_field :price %>円
+　  <p>販売ステータス</p>
+　  <%= f.select :is_active, Item.is_actives.keys.map {|k| [I18n.t("enums.item.is_active.#{k}"), k]} %>
+　  <br>
+　  <br>
+　  <%= f.submit "新規登録" %>
+　<% end %>
