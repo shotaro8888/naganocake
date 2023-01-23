@@ -12,9 +12,11 @@ Rails.application.routes.draw do
  scope module: :public do
   root to: "homes#top"
   get 'homes/about' => 'homes#about', as: 'about'
-  resources :items
+  resources :items, only: [:index, :show]
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+  resources :cart_items, only: [:index, :update, :destroy, :create]
 
+  patch 'cart_items/destroy_all' => 'cart_items#destroy_all'
   get 'customers/information' => 'customers#show'
   get 'customers/information/edit' => 'customers#edit'
   patch 'customers/information' => 'customers#update'
