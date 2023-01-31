@@ -4,6 +4,10 @@ ja:
       is_active:
         onsale: "販売中"
         notsale: "販売停止中"
+    order:
+      payment_method:
+        credit_card: "クレジットカード"
+        transfer: "銀行振込"
   activerecord:
     attributes:
       user:

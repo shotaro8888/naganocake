@@ -9,12 +9,14 @@
         </th>
       </thread>
       <tbody>
+        <% @customers.each do |customer| %>
         <tr>
           <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><%= customer.id %></td>
+          <td><%= link_to admin_customer_path(customer.id) do %><%= customer.last_name + customer.first_name %><% end %></td>
+          <td><%= customer.email %></td>
+          <td><%= customer.is_deleted ? '退会' : '有効' %></td>
         </tr>
+        <% end %>
       </tbody>
     </table>

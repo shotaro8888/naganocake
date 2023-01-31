@@ -11,11 +11,6 @@ class Public::ItemsController < ApplicationController
 
   def show
     @genres = Genre.all
-    @items = Item.all
-    if params[:genre_id]
-      @genre = Genre.find(params[:genre_id])
-      @items = @genre.items
-    end
     @item = Item.find(params[:id])
     @cart_item = CartItem.new
   end
