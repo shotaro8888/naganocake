@@ -1,6 +1,23 @@
-<h1>本当に退会しますか？</h1>
-<p>退会すると、会員登録情報や</p>
-<p>これまでの購入履歴が閲覧できなくなります。</p>
-<p>退会する場合は、「退会する」をクリックしてください。</p>
-<%= link_to customers_information_path do %>退会しない<% end %>
-<%= link_to customers_taikai_path, method: :patch do %>退会する<% end %>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-12 text-center">
+    <h5><b>本当に退会しますか？</b></h5>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-12 text-center">
+      <p>退会すると、会員登録情報や</p>
+      <p>これまでの購入履歴が閲覧できなくなります。</p>
+      <p>退会する場合は、「退会する」をクリックしてください。</p>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-12 text-center">
+      <%= link_to customers_information_path, class: 'btn btn-md btn-primary' do %>退会しない<% end %>
+    <%= link_to customers_taikai_path, class: 'btn btn-md btn-danger', method: :patch do %>退会する<% end %>
+    </div>
+  </div>
+</div>
+
+
+

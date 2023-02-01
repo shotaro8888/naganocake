@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row mt-5 ml-3">
+    <div class="bg-secondary">
     <h4><%= @customer.last_name + @customer.first_name %>さんの会員詳細</h4>
+    </div>  
   </div>
   <div class="row mt-5">
     <div class="col-3">
@@ -24,7 +26,7 @@
       <tr><td><%= @customer.address %></td></tr>
       <tr><td><%= @customer.telephone_number %></td></tr>
       <tr><td><%= @customer.email %></td></tr>
-      <tr><td><%= @customer.is_deleted ? '退会' : '有効' %></td></tr>
+      <tr><td class="text-success font-weight-bold"><%= @customer.is_deleted ? '退会' : '有効' %></td></tr>
       </table>
     <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: 'btn btn-md btn-success' %>
     <%= link_to "注文履歴一覧を見る", root_path, class: 'btn btn-md btn-primary' %>

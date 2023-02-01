@@ -8,6 +8,12 @@ ja:
       payment_method:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
+    order_detail:
+      product_status:
+        cannot: "製作不可"
+        wait: "製作待ち"
+        now: "製作中"
+        complete: "製作完了"
   activerecord:
     attributes:
       user:
