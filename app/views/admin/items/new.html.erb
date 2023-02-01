@@ -13,11 +13,24 @@
         <tr><th>商品説明</th><td><%= f.text_area :introduction %></td></tr>
         <tr><th>ジャンル</th><td><%= f.collection_select :genre_id, Genre.all, :id, :name %></td></tr>
         <tr><th>税抜価格</th><td><%= f.number_field :price %>円</td></tr>
-        <tr><th>販売ステータス</th><td><%= f.select :is_active, Item.is_actives.keys.map {|k| [I18n.t("enums.item.is_active.#{k}"), k]} %></td></tr>
+        <tr><th>販売ステータス</th>
+        <td>
+        <%= f.radio_button :is_active, :true %>
+        <%= f.label :is_active, "販売中" %>
+        <%= f.radio_button :is_active, :false %>
+        <%= f.label :is_active, "販売停止中" %>
+        </td>
+        </tr>
       </table>
-      <%= f.submit "新規登録", class: 'btn btn-md btn-success' %>
-    　<% end %>
     </div>
+  </div>
+  <div class="row mt-2 mx-auto">
+    <div class="col-5"></div>
+    <div class="col-2">
+    <%= f.submit "新規登録", class: 'btn btn-md btn-success' %>
+  　<% end %>
+  　</div>
+  　<div class="col-5"></div>
   </div>
 </div>
     　

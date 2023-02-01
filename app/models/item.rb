@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   belongs_to :genre
   has_many :cart_items
 
-  enum is_active: { onsale: true, notsale: false }
+  #enum is_active: { onsale: true, notsale: false }
 
   def get_image(width, height)
     unless image.attached?
