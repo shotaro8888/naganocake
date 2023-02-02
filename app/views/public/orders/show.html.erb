@@ -1,22 +1,30 @@
 <div class="container">
-  <div class="row">
-    
-    <div class="col-8">
+  
+  <div class="row p-3">
+    <div class="bg-secondary">
       <h4>注文履歴詳細</h4>
-      <table class="table">
-        <tr><th>注文日</th><td><%= @order.created_at.strftime('%Y/%m/%d') %></td></tr>
-        <tr><th>配送先</th><td><%= @order.my_address %></td></tr>
-        <tr><th>支払方法</th><td><%= @order.payment_method_i18n %></td></tr>
-        <tr><th>ステータス</th><td></td></tr>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-8">
+      <h4>注文情報</h4>
+      <table class="table table-bordered">
+        <tbody>
+        <tr><th class="table-active">注文日</th><td><%= @order.created_at.strftime('%Y/%m/%d') %></td></tr>
+        <tr><th class="table-active">配送先</th><td><%= @order.my_address %></td></tr>
+        <tr><th class="table-active">支払方法</th><td><%= @order.payment_method_i18n %></td></tr>
+        <tr><th class="table-active">ステータス</th><td></td></tr>
+        </tbody>
       </table>
     </div>
     
     <div class="col-4">
       <h4>請求情報</h4>
-      <table class="table">
-        <tr><th>商品合計</th><td><%= @order.total_payment - 800 %></td></tr>
-        <tr><th>配送料</th><td>800</td></tr>
-        <tr><th>ご請求額</th><td><%= @order.total_payment %></td></tr>
+      <table class="table table-bordered">
+        <tr><th class="table-active">商品合計</th><td><%= @order.total_payment - 800 %></td></tr>
+        <tr><th class="table-active">配送料</th><td>800</td></tr>
+        <tr><th class="table-active">ご請求額</th><td><%= @order.total_payment %></td></tr>
       </table>
     </div>
     
@@ -25,19 +33,18 @@
   <div class="row">
     <div class="col-12">
       <h4>注文内容</h4>
-      <table class="table">
-        <thead>
-          <th>
+      <table class="table table-bordered">
+        <thead class="table-active">
+          <tr>
             <th>商品</th>
             <th>単価(税込)</th>
             <th>個数</th>
             <th>小計</th>
-          </th>
+          </tr>
         </thead>
         <tbody>
           <% @order.order_details.each do |order_detail| %>
           <tr>
-            <td></td>
             <td><%= order_detail.item.name %></td>
             <td><%= (order_detail.item.price * 1.1).floor %></td>
             <td><%= order_detail.amount %></td>
