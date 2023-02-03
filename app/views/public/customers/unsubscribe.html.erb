@@ -14,7 +14,7 @@
   <div class="row pt-3">
     <div class="col-12 text-center">
       <%= link_to customers_information_path, class: 'btn btn-md btn-primary' do %>退会しない<% end %>
-    <%= link_to customers_taikai_path, class: 'btn btn-md btn-danger', method: :patch do %>退会する<% end %>
+    <%= link_to customers_taikai_path, class: 'btn btn-md btn-danger', method: :patch, "data-confirm" => "本当に退会しますか？" do %>退会する<% end %>
     </div>
   </div>
 </div>
